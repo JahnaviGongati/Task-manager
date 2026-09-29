@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 700px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .input-area {
+            display: flex;
+            gap: 10px;
+        }
+
+        input {
+            flex: 1;
+            padding: 10px;
+        }
+
+        button {
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+
+        li {
+            margin: 15px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .completed {
+            text-decoration: line-through;
+            color: gray;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Task Manager</h1>
+
+    <div class="input-area">
+       <input
+    id="taskInput"
+    type="text"
+    placeholder="Enter a new task"
+>
+
+<select id="categoryInput">
+    <option value="Personal">Personal</option>
+    <option value="Work">Work</option>
+    <option value="Urgent">Urgent</option>
+</select>
+
+<button onclick="addTask()">Add Task</button>
+    </div>
+
+   <div style="display: flex; justify-content: space-between; align-items: center;">
+    <h2>My Tasks</h2>
+
+    <select id="sortInput" onchange="loadTasks()">
+        <option value="newest">Newest First</option>
+        <option value="oldest">Oldest First</option>
+    </select>
+</div>
+
+    <ul id="taskList"></ul>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
