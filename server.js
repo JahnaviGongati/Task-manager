@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const path = require("path");
-
+require("dotenv").config();
 const Task = require("./models/Task");
 
 const app = express();
@@ -16,7 +16,7 @@ app.use(express.static(path.join(__dirname, "frontend")));
 
 // MongoDB connection
 mongoose
-    .connect("mongodb://127.0.0.1:27017/taskdb")
+   .connect(process.env.MONGODB_URI)
     .then(() => {
         console.log("MongoDB Connected");
     })
